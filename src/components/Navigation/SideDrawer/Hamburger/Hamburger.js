@@ -42,13 +42,16 @@ const StyledHamb = styled.div`
     }
   }
 `;
-const Hamburger = ({opened, clicked}) => {
-    return (
-        <StyledHamb onClick={clicked} opened={opened}>
-            <span />
-            <span />
-            <span />
-        </StyledHamb>
-    )
-}
-export default Hamburger
+
+const Hamburger = ({ opened, clicked }) => {
+  return (
+    <StyledHamb onClick={clicked} opened={opened}>
+      <span />
+      <span />
+      <span />
+      <span />
+    </StyledHamb>
+  );
+};
+
+export default Hamburger;

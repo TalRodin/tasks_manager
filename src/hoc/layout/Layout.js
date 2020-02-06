@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-import Navbar from './elements/Container'
-import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer'
+import Navbar from '../../components/Navigation/Navbar/Navbar';
+import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 
 const MainWrapper = styled.main`
   width: 100%;
@@ -10,11 +10,15 @@ const MainWrapper = styled.main`
   margin-top: 6rem;
 `;
 
-const Layout =({children})=>(
-        <>
-            <Navbar/>
-            <SideDrawer/>
-            <MainWrapper>{children}</MainWrapper>
-        </>
-)
-export default Layout
+
+const Layout = ({ children }) => (
+  
+  <>
+  {console.log(children)}
+    <Navbar />
+    <SideDrawer />
+    <MainWrapper>{children}</MainWrapper>
+  </>
+);
+
+export default Layout;

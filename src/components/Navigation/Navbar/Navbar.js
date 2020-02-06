@@ -1,12 +1,13 @@
-import React from 'react'
-import styled from 'styled-components'
-import Logo from '../../Logo/Logo'
-import Container from '../../../hoc/layout/elements/Container'
-import NavItems from '../NavItems/NavItems'
+import React from 'react';
+import styled from 'styled-components';
+
+import Logo from '../../Logo/Logo';
+import Container from '../../../hoc/layout/elements/Container';
+import NavItems from '../NavItems/NavItems';
 
 const FixedWrapper = styled.header`
   position: fixed;
-  background-color: var(--color-mainDark);
+  background-color: var(--color-mainLight);
   padding: 0rem 2rem;
   top: 0;
   left: 0;
@@ -23,16 +24,18 @@ const Wrapper = styled.div`
   justify-content: space-between;
 `;
 
-const Navbar =()=>{
-    return (
-        <FixedWrapper>
-          <Container>
-            <Wrapper>
-                <Logo/>
-                <NavItems/>
-            </Wrapper>
-          </Container>
-        </FixedWrapper>
-    )
-}
-export default Navbar
+const Navbar = () => {
+  
+  return (
+    <FixedWrapper>
+      <Container>
+        <Wrapper>
+          <Logo />
+          <NavItems />
+        </Wrapper>
+      </Container>
+    </FixedWrapper>
+  );
+};
+
+export default Navbar;

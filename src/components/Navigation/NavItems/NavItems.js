@@ -15,16 +15,19 @@ const Ul = styled.ul`
   height: 100%;
 `;
 
+const NavItems = ({ mobile, clicked }) => {
+  return (
+    <Nav mobile={mobile}>
+      <Ul mobile={mobile}>
+        <NavItem mobile={mobile} clicked={clicked} link="/">
+          home
+        </NavItem>
+        <NavItem mobile={mobile} clicked={clicked} link="/todos">
+          Todos
+        </NavItem>
+      </Ul>
+    </Nav>
+  );
+};
 
-
-const NavItems = ({mobile, clicked}) =>{
-    return (
-        <Nav mobile={mobile}>
-            <Ul mobile={mobile}>
-                <NavItem mobile={mobile} clicked = {clicked} link='/'>home</NavItem>
-                <NavItem mobile={mobile} clicked = {clicked} link='/todos'>todos</NavItem>
-            </Ul>
-        </Nav>
-    )
-}
-export default NavItems
+export default NavItems;

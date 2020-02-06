@@ -6,13 +6,14 @@ import Todos from './containers/Todos/Todos'
 
 
 const App = () =>{
-    return <Layout>
+    return (
+    <Layout>
       <Switch>
           <Route exact path='/' component={Home} />
-          <Route exact path='/' component={Todos}/>
+          <Route exact path='/todos' component={Todos}/>
           <Redirect to='/' />
       </Switch>
-    </Layout>
+    </Layout>)
     }
 
     

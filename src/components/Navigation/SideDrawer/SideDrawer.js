@@ -7,7 +7,7 @@ import Hamburger from './Hamburger/Hamburger';
 
 const FixedWrapper = styled.header`
   position: fixed;
-  background-color: var(--color-mainDark);
+  background-color: var(--color-mainLight);
   padding: 0rem 2rem;
   z-index: 10;
   top: 0;
@@ -38,7 +38,7 @@ const Menu = styled.div`
   justify-content: center;
   margin-top: 6rem;
   height: 100vh;
-  background-color: var(--color-mainDark);
+  background-color: var(--color-mainLight);
   visibility: ${props => (props.opened ? 'visibile' : 'hidden')};
   transform: translateY(${props => (props.opened ? '0%' : '-100%')});
   transition: all 0.1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
@@ -48,21 +48,21 @@ const Menu = styled.div`
   }
 `;
 
-const SideDrawer = () =>{
-    const [isOpened, setIsOpened] = useState(false)
-    return (
-        <>
-        <FixedWrapper>
-            <Wrapper>
-                <Logo/>
-                <Hamburger opened={isOpened} clicked={()=>setIsOpened(!isOpened)}/>
-            </Wrapper>
-        </FixedWrapper>
-        <Menu opened={isOpened}>
-            <NavItems mobile clicked={()=>setIsOpened(false)} />
-        </Menu>
-        </>
-    )
-}
+const SideDrawer = () => {
+  const [isOpened, setIsOpened] = useState(false);
+  return (
+    <>
+      <FixedWrapper>
+        <Wrapper>
+          <Logo />
+          <Hamburger opened={isOpened} clicked={() => setIsOpened(!isOpened)} />
+        </Wrapper>
+      </FixedWrapper>
+      <Menu opened={isOpened}>
+        <NavItems mobile clicked={() => setIsOpened(false)} />
+      </Menu>
+    </>
+  );
+};
 
-export default SideDrawer
+export default SideDrawer;

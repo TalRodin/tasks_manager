@@ -1,7 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
-
-
+import React from 'react';
+import styled from 'styled-components';
 
 const LogoWrapper = styled.div`
   color: var(--color-white);
@@ -13,11 +11,8 @@ const LogoWrapper = styled.div`
   padding: 1rem;
 `;
 
-const Logo = () =>{
-    return (
-        <LogoWrapper>
-         Productivity
-        </LogoWrapper>
-    )
-}
-export default Logo
+const Logo = () => {
+  return <LogoWrapper>Productivity</LogoWrapper>;
+};
+
+export default Logo;
