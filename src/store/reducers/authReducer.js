@@ -1,5 +1,5 @@
-const initialState = {}
+const initialState = {};
 
-export default (state = initialState, action)=>{
-    return 'qqqq'
-}
+export default (state = initialState, action) => {
+  return 'dwadwadaw';
+};
