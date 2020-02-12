@@ -1,11 +1,22 @@
 import React from 'react';
 import { Formik, Field } from 'formik';
+import { connect } from 'react-redux';
 import * as Yup from 'yup';
-
+import styled from 'styled-components';
 import { FormWrapper, StyledForm } from '../../../hoc/layout/elements';
 import Input from '../../../components/UI/Forms/Input/Input';
 import Button from '../../../components/UI/Forms/Button/Button';
 import Heading from '../../../components/UI/Headings/Heading';
+
+import * as actions from '../../../store/actions'
+import Message from '../../../components/UI/Message/Message'
+
+
+const MessageWrapper = styled.div`
+  position: absolute;
+  bottom: 0;
+`;
+
 
 const SignUpSchema = Yup.object().shape({
   firstName: Yup.string()
@@ -19,13 +30,13 @@ const SignUpSchema = Yup.object().shape({
   email: Yup.string()
     .email('Invalid email.')
     .required('The email is required.'),
-  password: Yup.string().required('The passoword is required.'),
+  password: Yup.string().required('The passoword is required.').min(8, 'The password is too short'),
   confirmPassword: Yup.string()
     .oneOf([Yup.ref('password'), null], `Password doesn't match`)
     .required('You need to confirm your password.'),
 });
 
-const SignUp = () => {
+const SignUp = ({signUp, loading, error}) => {
   return (
     <Formik
       initialValues={{
@@ -36,8 +47,10 @@ const SignUp = () => {
         confirmPassword: '',
       }}
       validationSchema={SignUpSchema}
-      onSubmit={(values, { setSubmitting }) => {
+      onSubmit={ async (values, { setSubmitting }) => {
         console.log(values);
+        await signUp(values)
+        setSubmitting(false)
       }}
     >
       {({ isSubmitting, isValid }) => (
@@ -79,14 +92,26 @@ const SignUp = () => {
               placeholder="Re-type your password..."
               component={Input}
             />
-            <Button disabled={!isValid} type="submit">
+            <Button disabled={!isValid} loading={loading?'Signing up':null} type="submit">
               Sign up
             </Button>
+            <MessageWrapper>
+              <Message error show={error}>{error}</Message>
+            </MessageWrapper>
+         
           </StyledForm>
         </FormWrapper>
       )}
     </Formik>
   );
 };
+const mapStateToProps = ({auth}) =>({
+  loading:auth.loading,
+  error: auth.error
 
-export default SignUp;
+})
+const mapDispatchToProps = {
+  signUp: actions.signUp
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(SignUp);

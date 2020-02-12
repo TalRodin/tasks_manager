@@ -13,16 +13,18 @@ export const FormWrapper = styled.div`
   max-width: 50rem;
   margin: 0 auto;
   border-radius: 0.7rem;
-  padding: 5rem 7rem;
+  padding: 10rem 7rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--color-mainDark);
+  justify-content: center;
+  background-color: var(--color-mainLight);
   box-shadow: 0rem 0.5rem 3.5rem var(--shadow);
 `;
 
 export const StyledForm = styled(Form)`
   display: flex;
+  position: relative;
   width: 100%;
   flex-direction: column;
 `;
